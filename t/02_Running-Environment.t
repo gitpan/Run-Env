@@ -8,6 +8,7 @@ use Test::More tests => 27;
 
 use English '-no_match_vars';
 use FindBin;
+use Config;
 
 exit main();
 
@@ -51,9 +52,16 @@ sub main {
 	Run::Env::set_staging();
 	Run::Env::set_debug();
 	diag 'run bin/print-run-env.pl to get Run::Env';
-
-	my $print_run_env = 'perl '.File::Spec->catfile($FindBin::Bin, 'bin', 'print-run-env.pl');
-	my $output = `$print_run_env`;
+	
+	# copy&paste from perlvar
+	my $this_perl = $^X;
+	if ($^O ne 'VMS') {
+		$this_perl .= $Config{_exe}
+         	unless $this_perl =~ m/$Config{_exe}$/i;
+    }
+    
+	my $print_run_env = $this_perl.' '.File::Spec->catfile($FindBin::Bin, 'bin', 'print-run-env.pl');
+	my $output = eval { `$print_run_env` };
 	
 	SKIP: {
 		skip 'failed to execute perl test script, skipping tests', 8
