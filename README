@@ -8,14 +8,18 @@ SYNOPSIS
             my $config = 'config.cfg';
             $config = 'test-config.cfg'
                     if Run::Env::testing;
-        
-            print Dumper \$config
+            
+        print Dumper \$config
                     if Run::Env::debug;
-        
-            print 'Content-Type: text/html'
+            
+        print 'Content-Type: text/html'
                     if Run::Env::cgi || Run::Env::mod_perl;
 
 DESCRIPTION
+    Usefull in cases if the program/script should behave in slightly
+    different way depending on if it's run on developers machine, staging
+    server or a production server.
+
     There can be 3 running environments:
 
             qw{
@@ -71,12 +75,15 @@ METHODS
    current()
     Return current running environment.
 
+   dev()
    development()
     Return true/false if curently running in development environment.
 
+   stg()
    staging()
     Return true/false if curently running in staging environment.
 
+   prod()
    production()
     Return true/false if curently running in production environment.
 
