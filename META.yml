@@ -1,23 +1,25 @@
 ---
-name: Run-Env
-version: 0.03
+abstract: 'running environment detection'
 author:
   - 'Jozef Kutej <jozef@kutej.net>'
-abstract: running environment detection
+build_requires:
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3607'
 license: perl
-resources:
-  license: http://dev.perl.org/licenses/
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Run-Env
+provides:
+  Run::Env:
+    file: lib/Run/Env.pm
+    version: 0.04
 requires:
   Carp::Clan: 0
   File::Spec: 0
   List::MoreUtils: 0
-build_requires:
-  Test::More: 0
-provides:
-  Run::Env:
-    file: lib/Run/Env.pm
-    version: 0.03
-generated_by: Module::Build version 0.280801
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.04
