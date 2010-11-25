@@ -7,6 +7,7 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Carp::Clan' => 0,
                            'File::Spec' => 0,
+                           'FindBin::Real' => 0,
                            'List::MoreUtils' => 0,
                            'Test::More' => 0
                          },

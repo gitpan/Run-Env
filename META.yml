@@ -15,11 +15,12 @@ name: Run-Env
 provides:
   Run::Env:
     file: lib/Run/Env.pm
-    version: 0.07
+    version: 0.08
 requires:
   Carp::Clan: 0
   File::Spec: 0
+  FindBin::Real: 0
   List::MoreUtils: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.07
+version: 0.08
